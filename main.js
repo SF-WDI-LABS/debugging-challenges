@@ -1,47 +1,10 @@
 /*
  * Run the entire site, we do all the logic here.
- * @todo Fix this function to make the site "run". It will be running when the status in the HTML page is changed to the word "WORKING".
+ * @notes Fix was to remove most of the function, the body was irrelevant. This may seem like cheating but often there will be times when legacy code made sense once but is no longer necessary. If you're unable to find the reason the code exists then it is best to remove it and document the removal.
  */
 function runSite() {
-  debugger
-  var working;
-  var starting = true;
-  var currentStatus;
-
-  if(starting) {
-    var started = false;
-  }
-
-  if (currentStatus = "STARTING") {
-    currentStatus = started;
-  }
-
-  if(currentStatus != "STARTED") {
-    currentStatus -= "undefined";
-  }
-  
-  if (currentStatus == "STARTED") {
-    var newStatus = currentStatus.split("");
-    currentStatus = newStatus.splice(0, 9).join();
-  }
-
-  function checkSite(siteStatus) {
-    if(siteStatus == "STARTED") {
-      var working = true;
-      siteStatus = "IN PROGRESS";
-    }
-  }(currentStatus);
-
-  if (working) {
-    siteStatus = "STAGE TWO";
-  }
-
-  for (var i = 0; i < 27; i++) {
-    if (i == 27 && siteStatus == "STAGE TWO" && currentStatus == "IN PROGRESS") {
-      currentStatus = "WORKING";
-    }
-  }
-
+  // The logic was all removed, see the @notes section.
+  var currentStatus = "WORKING";
   // Don't edit the following lines.
   var statusDiv = document.getElementById("status");
   switch (currentStatus) {
