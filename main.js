@@ -16,3 +16,44 @@ function runSite() {
       break;
   }
 }
+
+
+/*
+ * Start a profiler and compare a for loop and a forEach loop.
+ * @param maxIterations {int} Maximum number of loops to attempt.
+ * @todo Does this profile give enough information to compare the two?
+ */
+function profileLoops(maxIterations) {
+  console.group("For vs forEach");
+  console.info("Initializing Testing Array");
+  var arrayToLoop = [];
+  var i = maxIterations;
+  // NOTE while isn't even considered here, but it may be the fastest depending on the problem.
+  while(i--) {
+    arrayToLoop[i] = "x";
+  }
+
+  console.info("Starting");
+  console.profile("For vs forEach");
+
+  console.group("For Loops");
+  console.info("Checking Timing");
+  console.time("for");
+  for(var i = 0; i < arrayToLoop.length; i++) {arrayToLoop[i]}
+  console.timeEnd("for");
+  console.info("Completed");
+  console.groupEnd("For Loops");
+
+  console.group("forEach Loops");
+  console.info("Checking Timing");
+  console.time("forEach");
+  arrayToLoop.forEach(function(x) {x})
+  console.timeEnd("forEach");
+  console.info("Completed");
+  console.groupEnd("forEach Loops");
+
+  console.info("Completed All Steps");
+  console.profileEnd("For vs forEach");
+
+  console.groupEnd("For vs forEach");
+}
